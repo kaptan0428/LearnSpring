@@ -5,15 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Table(name = "employee")
+@Table(name = "employee")  //  table name in DB
 
-@Entity
+@Entity  // it denotes it is a table
 public class Employee {
 
-    @Id
-    @GeneratedValue
+    @Id  // to make it primary id
+    @GeneratedValue(strategy = GenerationType.AUTO) // automatic Id generation
     @Column(name = "id")
     private int id;
     @Column(name = "firstname")
@@ -26,10 +27,13 @@ public class Employee {
 
     @Column(name = "spouse")
     private boolean spouse;
+
     @Column(name = "age")
     private int age;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Address> addressList;
+
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // Lazy - it will become bean only when it is invoked
+    private List<Address> addressList = new ArrayList<>();
 
 
     public Employee(int id, String firstName, String lastName, int noOfChildren, boolean spouse, int age, List<Address> addressList) {

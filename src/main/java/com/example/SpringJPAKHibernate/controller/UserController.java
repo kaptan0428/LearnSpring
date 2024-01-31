@@ -1,13 +1,10 @@
 package com.example.SpringJPAKHibernate.controller;
 
 import com.example.SpringJPAKHibernate.model.User;
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.SpringJPAKHibernate.repository.UserRepository;
-import com.example.SpringJPAKHibernate.service.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
